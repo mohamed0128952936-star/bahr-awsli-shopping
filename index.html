@@ -6,7 +6,7 @@
     <title>بحر أوسلي للتسوق</title>
     <meta
       name="description"
-      content="متجر عربي عصري لتسوق الإلكترونيات، الملابس، المنزل، والمجوهرات."
+      content="متجر عربي عصري للتسوق الإلكتروني، الملابس، المنزل، والجمال."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,9 +36,7 @@
           </nav>
 
           <div class="nav-actions">
-            <button class="icon-btn" aria-label="بحث">
-              <span>⌕</span>
-            </button>
+            <button class="icon-btn" aria-label="بحث">⌕</button>
             <button class="cart-btn" id="cartToggle" aria-label="سلة التسوق">
               <span>🛒</span>
               <span class="cart-count" id="cartCount">0</span>
@@ -80,13 +78,14 @@
             </div>
 
             <div class="hero-visual" aria-label="صور منتجات">
-              <div class="visual-card showcase large">
+              <div class="visual-card showcase">
                 <img
                   src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80"
                   alt="ساعة ذكية"
                 />
-                <div class="floating-tag tag-top">خصم 40%</div>
+                <div class="floating-tag">خصم 40%</div>
               </div>
+
               <div class="visual-stack">
                 <div class="visual-card small-card">
                   <img
@@ -144,8 +143,8 @@
               <strong>الكل</strong>
             </button>
             <button class="category-card" data-category="electronic">
-              <span>����</span>
-              <strong>إلكترونيات</strong>
+              <span>📱</span>
+              <strong>إلكتر��نيات</strong>
             </button>
             <button class="category-card" data-category="fashion">
               <span>👗</span>
@@ -212,6 +211,8 @@
         </section>
       </main>
 
+      <div class="cart-overlay" id="cartOverlay"></div>
+
       <aside class="cart-panel" id="cartPanel" aria-label="سلة التسوق">
         <div class="cart-header">
           <h3>سلة التسوق</h3>
@@ -238,7 +239,7 @@
             <span>الإجمالي</span>
             <strong id="total">SAR 0</strong>
           </div>
-          <button class="checkout-btn">إتمام الطلب</button>
+          <button class="checkout-btn" id="checkoutBtn">إتمام الطلب</button>
         </div>
       </aside>
     </div>
@@ -246,302 +247,3 @@
     <script src="script.js"></script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$(
