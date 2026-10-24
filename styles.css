@@ -1,849 +1,639 @@
-* {
-  box-sizing: border-box;
-}
-
-:root {
-  --bg: #f7f4ef;
-  --card: #ffffff;
-  --primary: #0b6e7a;
-  --primary-deep: #074d5e;
-  --accent: #f8b931;
-  --accent-soft: #fff3d6;
-  --text: #18212d;
-  --muted: #58657a;
-  --line: #e7ebf0;
-  --shadow: 0 16px 40px rgba(18, 52, 62, 0.12);
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: "Cairo", sans-serif;
-  background: linear-gradient(180deg, #f9f6f1 0%, #f4f8fb 100%);
-  color: var(--text);
-}
-
-a {
-  text-decoration: none;
-}
-
-button,
-input,
-select {
-  font: inherit;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-.page-shell {
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-.container {
-  width: min(1180px, calc(100% - 32px));
-  margin: 0 auto;
-}
-
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 30;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(25, 33, 45, 0.06);
-}
-
-.nav-wrap {
-  height: 82px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.brand-group {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.brand-mark {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, var(--primary) 0%, #15a2ba 100%);
-  color: #fff;
-  font-weight: 800;
-  font-size: 1.3rem;
-  box-shadow: var(--shadow);
-}
-
-.brand-name,
-brand-group small {
-  display: block;
-}
-
-.brand-name {
-  font-weight: 800;
-  color: var(--text);
-  font-size: 1.2rem;
-}
-
-brand-group small {
-  color: var(--muted);
-  font-size: 0.7rem;
-}
-
-.main-nav {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.main-nav a {
-  color: var(--muted);
-  font-weight: 600;
-  transition: color 0.2s ease;
-}
-
-.main-nav a:hover {
-  color: var(--primary);
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.icon-btn,
-.cart-btn,
-.close-btn {
-  border: 1px solid rgba(11, 110, 122, 0.1);
-  background: #fff;
-  color: var(--text);
-  border-radius: 12px;
-  cursor: pointer;
-}
-
-.icon-btn {
-  width: 42px;
-  height: 42px;
-  font-size: 1.2rem;
-}
-
-.cart-btn {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  min-width: 56px;
-  height: 42px;
-  padding: 0 12px;
-  background: var(--primary);
-  color: #fff;
-}
-
-.cart-count {
-  display: grid;
-  place-items: center;
-  min-width: 20px;
-  height: 20px;
-  background: var(--accent);
-  color: #1d2c2f;
-  border-radius: 999px;
-  font-size: 0.72rem;
-  font-weight: 800;
-}
-
-.hero {
-  padding: 48px 0 26px;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
-  gap: 34px;
-}
-
-.eyebrow,
-.mini-label {
-  display: inline-flex;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(11, 110, 122, 0.08);
-  color: var(--primary);
-  font-size: 0.82rem;
-  font-weight: 700;
-}
-
-.hero-copy h1 {
-  margin: 18px 0 14px;
-  font-size: clamp(2.4rem, 4vw, 4.4rem);
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-}
-
-.hero-copy p {
-  margin: 0;
-  max-width: 560px;
-  color: var(--muted);
-  font-size: 1.08rem;
-  line-height: 1.8;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 28px;
-}
-
-.primary-btn,
-.secondary-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 52px;
-  padding: 0 24px;
-  border-radius: 14px;
-  font-weight: 700;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.primary-btn {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 100%);
-  color: #fff;
-  box-shadow: 0 14px 28px rgba(11, 110, 122, 0.22);
-}
-
-.secondary-btn {
-  background: #fff;
-  color: var(--primary-deep);
-  border: 1px solid rgba(11, 110, 122, 0.18);
-}
-
-.primary-btn:hover,
-.secondary-btn:hover,
-.category-card:hover,
-.checkout-btn:hover {
-  transform: translateY(-2px);
-}
-
-.stats-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  margin-top: 28px;
-}
-
-.stats-row div {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.stats-row strong {
-  font-size: 1.5rem;
-}
-
-.stats-row span {
-  color: var(--muted);
-}
-
-.hero-visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-}
-
-.visual-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.visual-card {
-  position: relative;
-  background: #fff;
-  border-radius: 28px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(116, 122, 128, 0.08);
-}
-
-.visual-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.showcase {
-  width: min(360px, 70vw);
-  height: 450px;
-}
-
-.small-card {
-  width: 180px;
-  height: 180px;
-}
-
-.small-card.accent {
-  background: #edf8ff;
-}
-
-.floating-tag {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 40px;
-  padding: 0 14px;
-  font-weight: 700;
-  border-radius: 999px;
-  background: rgba(248, 185, 49, 0.92);
-  color: var(--text);
-}
-
-.features {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  padding: 28px 0 10px;
-}
-
-.feature-item {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 20px 18px;
-}
-
-.feature-item h3 {
-  margin: 0 0 6px;
-  font-size: 1.1rem;
-}
-
-.feature-item p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.feature-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 16px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, var(--accent-soft) 0%, rgba(11, 110, 122, 0.08) 100%);
-  font-size: 1.6rem;
-}
-
-.categories,
-.products-section,
-.about {
-  padding-top: 54px;
-}
-
-.section-head {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 20px;
-}
-
-.section-head h2 {
-  margin: 10px 0 0;
-  font-size: clamp(1.8rem, 2vw, 2.5rem);
-}
-
-.section-head a {
-  color: var(--primary);
-  font-weight: 700;
-}
-
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.category-card {
-  appearance: none;
-  border: 1px solid var(--line);
-  background: #fff;
-  color: var(--text);
-  border-radius: 18px;
-  min-height: 116px;
-  padding: 18px 14px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.category-card span {
-  font-size: 2rem;
-}
-
-.category-card.active {
-  background: linear-gradient(135deg, rgba(11, 110, 122, 0.1), rgba(248, 185, 49, 0.15));
-  border-color: rgba(11, 110, 122, 0.14);
-  box-shadow: inset 0 0 0 1px rgba(11, 110, 122, 0.06);
-}
-
-.toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin: 18px 0 28px;
-}
-
-.search-box {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex: 1;
-  max-width: 520px;
-  min-height: 52px;
-  border: 1px solid var(--line);
-  background: #fff;
-  border-radius: 12px;
-  padding: 0 14px;
-}
-
-.search-box input {
-  flex: 1;
-  border: none;
-  background: transparent;
-  outline: none;
-  color: var(--text);
-  font-size: 1rem;
-}
-
-.toolbar select {
-  border: 1px solid var(--line);
-  background: #fff;
-  color: var(--text);
-  min-height: 52px;
-  border-radius: 12px;
-  padding: 0 16px;
-  outline: none;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.product-card {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 14px 30px rgba(20, 30, 38, 0.04);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 34px rgba(21, 33, 42, 0.08);
-}
-
-.product-image {
-  position: relative;
-  height: 250px;
-  overflow: hidden;
-}
-
-.product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.badge {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-weight: 700;
-  color: #fff;
-  background: linear-gradient(135deg, #ff7e54, #ffb257);
-  font-size: 0.72rem;
-}
-
-.product-body {
-  padding: 18px 16px 20px;
-}
-
-.product-title-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-
-.product-body h3 {
-  margin: 0;
-  font-size: 1.1rem;
-}
-
-.product-rating {
-  color: #f7a800;
-  font-size: 0.82rem;
-}
-
-.product-description {
-  min-height: 52px;
-  margin: 0 0 14px;
-  color: var(--muted);
-  line-height: 1.7;
-  font-size: 0.9rem;
-}
-
-.product-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.price-wrap {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-}
-
-.price {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--primary-deep);
-}
-
-.old-price {
-  color: var(--muted);
-  font-size: 0.82rem;
-  text-decoration: line-through;
-}
-
-.add-btn {
-  border: none;
-  border-radius: 12px;
-  padding: 10px 16px;
-  background: var(--primary);
-  color: #fff;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.promo-banner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  margin-top: 56px;
-  padding: 28px 26px;
-  border-radius: 26px;
-  background: linear-gradient(135deg, #0d4959 0%, #133a5d 100%);
-  color: #fff;
-}
-
-.promo-copy span {
-  display: inline-block;
-  color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 10px;
-  font-size: 0.85rem;
-}
-
-.promo-copy h3 {
-  margin: 0;
-  font-size: clamp(1.4rem, 2vw, 2.1rem);
-}
-
-.about-card {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 18px;
-  align-items: center;
-  padding: 26px 24px;
-  background: rgba(255, 255, 255, 0.75);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-}
-
-.about-card p {
-  margin: 14px 0 0;
-  color: var(--muted);
-  line-height: 1.8;
-}
-
-.about-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-}
-
-.about-badges span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 52px;
-  padding: 0 18px;
-  background: linear-gradient(135deg, rgba(11, 110, 122, 0.1), rgba(248, 185, 49, 0.12));
-  color: var(--primary-deep);
-  border-radius: 12px;
-  font-weight: 700;
-}
-
-.cart-panel {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: min(420px, 100%);
-  height: 100dvh;
-  background: #fff;
-  box-shadow: -22px 0 48px rgba(18, 26, 34, 0.18);
-  border-left: 1px solid var(--line);
-  transform: translateX(105%);
-  transition: transform 0.25s ease;
-  z-index: 50;
-  display: flex;
-  flex-direction: column;
-}
-
-.cart-panel.open {
-  transform: translateX(0);
-}
-
-.cart-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  padding: 22px 20px;
-  border-bottom: 1px solid var(--line);
-}
-
-.cart-header h3 {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
-.close-btn {
-  width: 40px;
-  height: 40px;
-  font-size: 1.1rem;
-}
-
-.cart-items {
-  flex: 1;
-  overflow: auto;
-  padding: 18px 20px;
-}
-
-.empty-state {
-  display: grid;
-  place-items: center;
-  height: 100%;
-  color: var(--muted);
-  text-align: center;
-}
-
-.empty-icon {
-  font-size: 3rem;
-  margin-bottom: 8px;
-}
-
-.cart-item {
-  display: grid;
-  grid-template-columns: 86px 1fr auto;
-  gap: 14px;
-  align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.cart-item img {
-  width: 86px;
-  height: 86px;
-  object-fit: cover;
-  border-radius: 14px;
-}
-
-.cart-item h4 {
-  margin: 0 0 4px;
-  font-size: 1rem;
-}
-
-.cart-item p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.82rem;
-}
-
-.item-actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 12px;
-}
-
-.qty-controls {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 6px 10px;
-}
-
-.qty-controls button {
-  border: none;
-  background: transparent;
-  color: var(--text);
-  cursor: pointer;
-  font-size: 1.1rem;
-}
-
-.item-total {
-  color: var(--primary-deep);
-  font-weight: 800;
-}
-
-.cart-summary {
-  border-top: 1px solid var(--line);
-  padding: 18px 20px 20px;
-  background: rgba(247, 244, 239, 0.65);
-}
-
-.summary-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-  color: var(--muted);
-}
-
-.summary-row.total {
-  color: var(--text);
-  font-size: 1.08rem;
-  margin-top: 16px;
-  padding-top: 10px;
-  border-top: 1px solid var(--line);
-}
-
-.checkout-btn {
-  width: 100%;
-  border: none;
-  min-height: 54px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 100%);
-  color: #fff;
-  font-weight: 800;
-  cursor: pointer;
-  margin-top: 12px;
-}
-
-@media (max-width: 980px) {
-  .hero-grid,
-  .about-card,
-  .features,
-  .product-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .toolbar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .search-box {
-    max-width: none;
-  }
-  .product-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 760px) {
-  .main-nav {
-    display: none;
-  }
-
-  .features,
-  .category-grid,
-  .product-grid,
-  .about-card {
-    grid-template-columns: 1fr;
-  }
-
-  .promo-banner,
-  .section-head {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .product-grid {
-    display: grid;
-  }
-
-  .hero-copy h1 {
-    font-size: 2.4rem;
-  }
-
-  .visual-card.showcase {
-    width: 100%;
-    height: 340px;
-  }
-
-  .visual-hero {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .hero-visual {
-    flex-direction: column;
-  }
-
-  .small-card {
-    width: 100%;
-    height: 180px;
-  }
-}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>بحر أوسلي للتسوق</title>
+    <meta
+      name="description"
+      content="متجر عربي فاخر للتسوق الإلكتروني، الملابس، المنزل، والجمال."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="container nav-wrap">
+          <div class="brand-group">
+            <div class="brand-mark">ب</div>
+            <div>
+              <span class="brand-name">بحر</span>
+              <small>أوسلي للتسوق</small>
+            </div>
+          </div>
+
+          <nav class="main-nav" aria-label="التنavig main">
+            <a href="#home">الرئيسية</a>
+            <a href="#offers">العروض</a>
+            <a href="#products">المنتجات</a>
+            <a href="#about">من نحن</a>
+          </nav>
+
+          <div class="nav-actions">
+            <button class="icon-btn" aria-label="بحث">⌕</button>
+            <button class="cart-btn" id="cartToggle" aria-label="سلة التسوق">
+              <span>🛒</span>
+              <span class="cart-count" id="cartCount">0</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main id="home">
+        <section class="hero">
+          <div class="container hero-grid">
+            <div class="hero-copy">
+              <span class="eyebrow">تسوق بطريقة أنيقة</span>
+              <h1>اكتشف أحدث المنتجات بأفضل الأسعار</h1>
+              <p>
+                متجر فاخر يجمع بين الأصالة والحداثة، مع تشكيلة مختارة بعناية من
+                الإلكترونيات، الملابس، المنزل، والجمال.
+              </p>
+
+              <div class="hero-actions">
+                <a href="#products" class="primary-btn">تسوق الآن</a>
+                <a href="#offers" class="secondary-btn">استعرض العروض</a>
+              </div>
+
+              <div class="stats-row">
+                <div>
+                  <strong>+25k</strong>
+                  <span>عميل سعيد</span>
+                </div>
+                <div>
+                  <strong>4.9/5</strong>
+                  <span>تقييم العملاء</span>
+                </div>
+                <div>
+                  <strong>24/7</strong>
+                  <span>دعم متواصل</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-visual" aria-label="صور منتجات">
+              <div class="visual-card showcase">
+                <img
+                  src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80"
+                  alt="ساعة ذكية"
+                />
+                <div class="floating-tag">خصم 40%</div>
+              </div>
+
+              <div class="visual-stack">
+                <div class="visual-card small-card">
+                  <img
+                    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80"
+                    alt="حذاء رياضي"
+                  />
+                </div>
+                <div class="visual-card small-card accent">
+                  <img
+                    src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=700&q=80"
+                    alt="مجموعة عصرية"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="trust-bar container" id="offers">
+          <div class="trust-item">
+            <span>🚚</span>
+            <div>
+              <strong>توصيل سريع</strong>
+              <small>داخل المدن خلال 48 ساعة</small>
+            </div>
+          </div>
+          <div class="trust-item">
+            <span>💳</span>
+            <div>
+              <strong>دفع آمن</strong>
+              <small>مدفوعات موثوقة ومعتمدة</small>
+            </div>
+          </div>
+          <div class="trust-item">
+            <span>🎁</span>
+            <div>
+              <strong>عروض مستمرة</strong>
+              <small>خصومات حصرية كل أسبوع</small>
+            </div>
+          </div>
+        </section>
+
+        <section class="categories container">
+          <div class="section-head">
+            <div>
+              <span class="mini-label">أهم الأقسام</span>
+              <h2>تسوق حسب الفئة</h2>
+            </div>
+            <a href="#products">عرض الكل</a>
+          </div>
+
+          <div class="category-grid">
+            <button class="category-card active" data-category="all">
+              <span>🎯</span>
+              <strong>الكل</strong>
+            </button>
+            <button class="category-card" data-category="electronic">
+              <span>📱</span>
+              <strong>إلكترونيات</strong>
+            </button>
+            <button class="category-card" data-category="fashion">
+              <span>👗</span>
+              <strong>ملابس</strong>
+            </button>
+            <button class="category-card" data-category="home">
+              <span>🏠</span>
+              <strong>منزل</strong>
+            </button>
+            <button class="category-card" data-category="beauty">
+              <span>💄</span>
+              <strong>جمال</strong>
+            </button>
+          </div>
+        </section>
+
+        <section class="promo-strip container">
+          <article class="promo-card promo-card-primary">
+            <div>
+              <span>صفقات اليوم</span>
+              <h3>خصم 50% على أحدث الأجهزة</h3>
+            </div>
+            <a href="#products" class="small-btn">تسوق الآن</a>
+          </article>
+
+          <article class="promo-card promo-card-secondary">
+            <div>
+              <span>مجموعة جديدة</span>
+              <h3>أزياء أنيقة لأسلوبك اليومي</h3>
+            </div>
+            <a href="#products" class="small-btn light">اكتشفها</a>
+          </article>
+        </section>
+
+        <section class="products-section container" id="products">
+          <div class="section-head">
+            <div>
+              <span class="mini-label">الأكثر مبيعًا</span>
+              <h2>منتجات مختارة لك</h2>
+            </div>
+          </div>
+
+          <div class="toolbar">
+            <div class="search-box">
+              <span>⌕</span>
+              <input id="searchInput" type="search" placeholder="ابحث عن منتج..." />
+            </div>
+            <select id="sortSelect" aria-label="ترتيب المنتجات">
+              <option value="featured">الأكثر شهرة</option>
+              <option value="low-high">السعر: من الأقل إلى الأعلى</option>
+              <option value="high-low">السعر: من الأعلى إلى الأقل</option>
+            </select>
+          </div>
+
+          <div class="product-grid" id="productGrid"></div>
+        </section>
+
+        <section class="showcase-panel container">
+          <div class="showcase-copy">
+            <span class="mini-label light">حصري هذا الأسبوع</span>
+            <h3>تجهيز منزلك بأفخم التفاصيل</h3>
+            <p>
+              اكتشف تشكيلة منزلية عصرية تجمع بين الجودة والراحة، مع خصومات تصل إلى
+              60% على منتجات الديكور والإضاءة.
+            </p>
+            <a href="#products" class="primary-btn">استكشف الآن</a>
+          </div>
+          <div class="showcase-image">
+            <img
+              src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80"
+              alt="ديكور منزلي فاخر"
+            />
+          </div>
+        </section>
+
+        <section class="reviews container" id="about">
+          <div class="section-head">
+            <div>
+              <span class="mini-label">آراء العملاء</span>
+              <h2>ماذا يقول عملاؤنا؟</h2>
+            </div>
+          </div>
+
+          <div class="review-grid">
+            <article class="review-card">
+              <div class="stars">★★★★★</div>
+              <p>
+                "تجربة تسوق ممتازة، السريعة في التوصيل وجودة المنتجات تجاوزت
+                توقعاتي. شكراً لفريق بحر أوسلي."
+              </p>
+              <div class="review-user">
+                <strong>سارة م.</strong>
+                <span>عميلة</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <div class="stars">��★★★★</div>
+              <p>
+                "الهوية البصرية للمتجر ساحرة، والخصومات مناسبة جدًا. أنصح به بكل
+                ثقة للشراء الإلكتروني."
+              </p>
+              <div class="review-user">
+                <strong>عبدالله ح.</strong>
+                <span>عميل</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <div class="stars">★★★★★</div>
+              <p>
+                "التعامل مع السلة والمنتجات سهل وواضح، وهناك تنوع كبير جدًا في
+                الفئات. تجربة ممتعة جدًا." 
+              </p>
+              <div class="review-user">
+                <strong>ريم ف.</strong>
+                <span>عميلة</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="newsletter container">
+          <div class="newsletter-box">
+            <div>
+              <span class="mini-label light">النشرة البريدية</span>
+              <h3>اشترك الآن لتحصل على العروض الحصرية</h3>
+            </div>
+            <form class="newsletter-form">
+              <input type="email" placeholder="أدخل بريدك الإلكتروني" />
+              <button type="submit">اشترك</button>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div>
+            <div class="brand-group footer-brand">
+              <div class="brand-mark">ب</div>
+              <div>
+                <span class="brand-name">بحر</span>
+                <small>أوسلي للتسوق</small>
+              </div>
+            </div>
+            <p>
+              متجر عربي فاخر يقدّم تجربة تسوق حديثة وجذابة بأسعار تنافسية وجودة
+              عالية.
+            </p>
+          </div>
+
+          <div>
+            <h4>روابط سريعة</h4>
+            <ul>
+              <li><a href="#home">الرئيسية</a></li>
+              <li><a href="#products">المنتجات</a></li>
+              <li><a href="#offers">العروض</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>خدمة العملاء</h4>
+            <ul>
+              <li><a href="#">تواصل معنا</a></li>
+              <li><a href="#">سياسة الاسترجاع</a></li>
+              <li><a href="#">الشحن والتوصيل</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>تواصل معنا</h4>
+            <ul>
+              <li>support@bahrawslishop.com</li>
+              <li>+966 500 000 000</li>
+              <li>الرياض، المملكة العربية السعودية</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">© 2026 بحر أوسلي للتسوق. جميع الحقوق محفوظة.</div>
+      </footer>
+
+      <div class="cart-overlay" id="cartOverlay"></div>
+
+      <aside class="cart-panel" id="cartPanel" aria-label="سلة التسوق">
+        <div class="cart-header">
+          <h3>سلة التسوق</h3>
+          <button id="closeCart" class="close-btn" aria-label="إغلاق السلة">✕</button>
+        </div>
+
+        <div class="cart-items" id="cartItems">
+          <div class="empty-state">
+            <div class="empty-icon">🛍️</div>
+            <p>سلة التسوق فارغة</p>
+          </div>
+        </div>
+
+        <div class="cart-summary">
+          <div class="summary-row">
+            <span>المجموع الفرعي</span>
+            <strong id="subtotal">SAR 0</strong>
+          </div>
+          <div class="summary-row">
+            <span>التوصيل</span>
+            <strong>مجاني</strong>
+          </div>
+          <div class="summary-row total">
+            <span>الإجمالي</span>
+            <strong id="total">SAR 0</strong>
+          </div>
+          <button class="checkout-btn" id="checkoutBtn">إتمام الطلب</button>
+        </div>
+      </aside>
+    </div>
+
+    <div class="product-modal" id="productModal" aria-hidden="true">
+      <div class="modal-backdrop" id="modalBackdrop"></div>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" id="modalClose" aria-label="إغلاق">✕</button>
+        <div class="modal-media">
+          <img id="modalImage" src="" alt="" />
+        </div>
+        <div class="modal-body">
+          <span class="modal-badge" id="modalBadge">جديد</span>
+          <h3 id="modalTitle">اسم المنتج</h3>
+          <div class="modal-rating">★ <span id="modalRating">4.9</span></div>
+          <p id="modalDescription"></p>
+          <div class="modal-price-row">
+            <strong id="modalPrice">SAR 0</strong>
+            <span id="modalOldPrice"></span>
+          </div>
+          <button class="modal-add" id="modalAddBtn">إضافة إلى السلة</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
