@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>بحر أوسلي للتسوق</title>
+    <meta
+      name="description"
+      content="متجر عربي عصري لتسوق الإلكترونيات، الملابس، المنزل، والمجوهرات."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="container nav-wrap">
+          <div class="brand-group">
+            <div class="brand-mark">ب</div>
+            <div>
+              <span class="brand-name">بحر</span>
+              <small>أوسلي للتسوق</small>
+            </div>
+          </div>
+
+          <nav class="main-nav" aria-label="التنقل الرئيسي">
+            <a href="#home">الرئيسية</a>
+            <a href="#offers">العروض</a>
+            <a href="#products">المنتجات</a>
+            <a href="#about">من نحن</a>
+          </nav>
+
+          <div class="nav-actions">
+            <button class="icon-btn" aria-label="بحث">
+              <span>⌕</span>
+            </button>
+            <button class="cart-btn" id="cartToggle" aria-label="سلة التسوق">
+              <span>🛒</span>
+              <span class="cart-count" id="cartCount">0</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main id="home">
+        <section class="hero">
+          <div class="container hero-grid">
+            <div class="hero-copy">
+              <span class="eyebrow">تسوق بطريقة أنيقة</span>
+              <h1>اكتشف أحدث المنتجات بأفضل الأسعار</h1>
+              <p>
+                من الإلكترونيات إلى الملابس والديكور، نوفر لك تجربة تسوق ممتعة ومريحة
+                مع خصومات حصرية يومية.
+              </p>
+
+              <div class="hero-actions">
+                <a href="#products" class="primary-btn">تسوق الآن</a>
+                <a href="#offers" class="secondary-btn">استعرض العروض</a>
+              </div>
+
+              <div class="stats-row">
+                <div>
+                  <strong>+25k</strong>
+                  <span>عميل سعيد</span>
+                </div>
+                <div>
+                  <strong>4.9/5</strong>
+                  <span>مراجعات</span>
+                </div>
+                <div>
+                  <strong>24/7</strong>
+                  <span>دعم</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-visual" aria-label="صور منتجات">
+              <div class="visual-card showcase large">
+                <img
+                  src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80"
+                  alt="ساعة ذكية"
+                />
+                <div class="floating-tag tag-top">خصم 40%</div>
+              </div>
+              <div class="visual-stack">
+                <div class="visual-card small-card">
+                  <img
+                    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80"
+                    alt="حذاء رياضي"
+                  />
+                </div>
+                <div class="visual-card small-card accent">
+                  <img
+                    src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=700&q=80"
+                    alt="مجموعة عصرية"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="features container" id="offers">
+          <div class="feature-item">
+            <div class="feature-icon">🚚</div>
+            <div>
+              <h3>توصيل سريع</h3>
+              <p>توصيل إلى جميع المدن خلال 24-72 ساعة</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">💳</div>
+            <div>
+              <h3>دفع آمن</h3>
+              <p>مدفوعات موثوقة وعملات متعددة</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🎁</div>
+            <div>
+              <h3>مكافآت وعروض</h3>
+              <p>خصومات حصرية لفئات محددة كل أسبوع</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="categories container">
+          <div class="section-head">
+            <div>
+              <span class="mini-label">أهم الأقسام</span>
+              <h2>تسوق حسب الفئة</h2>
+            </div>
+            <a href="#products">عرض الكل</a>
+          </div>
+
+          <div class="category-grid">
+            <button class="category-card active" data-category="all">
+              <span>🎯</span>
+              <strong>الكل</strong>
+            </button>
+            <button class="category-card" data-category="electronic">
+              <span>����</span>
+              <strong>إلكترونيات</strong>
+            </button>
+            <button class="category-card" data-category="fashion">
+              <span>👗</span>
+              <strong>ملابس</strong>
+            </button>
+            <button class="category-card" data-category="home">
+              <span>🏠</span>
+              <strong>منزل</strong>
+            </button>
+            <button class="category-card" data-category="beauty">
+              <span>💄</span>
+              <strong>جمال</strong>
+            </button>
+          </div>
+        </section>
+
+        <section class="products-section container" id="products">
+          <div class="section-head">
+            <div>
+              <span class="mini-label">أحدث المنتجات</span>
+              <h2>منتجات مختارة لك</h2>
+            </div>
+          </div>
+
+          <div class="toolbar">
+            <div class="search-box">
+              <span>⌕</span>
+              <input id="searchInput" type="search" placeholder="ابحث عن منتج..." />
+            </div>
+            <select id="sortSelect" aria-label="ترتيب المنتجات">
+              <option value="featured">الأكثر شهرة</option>
+              <option value="low-high">السعر: من الأقل إلى الأعلى</option>
+              <option value="high-low">السعر: من الأعلى إلى الأقل</option>
+            </select>
+          </div>
+
+          <div class="product-grid" id="productGrid"></div>
+        </section>
+
+        <section class="promo-banner container">
+          <div class="promo-copy">
+            <span>خصم خاص هذا الأسبوع</span>
+            <h3>خصم يصل إلى 60% على أحدث تجهيزات المنزل</h3>
+          </div>
+          <a href="#products" class="primary-btn">استخدم الكود: SEA60</a>
+        </section>
+
+        <section class="about container" id="about">
+          <div class="about-card">
+            <div>
+              <span class="mini-label">لماذا نحن؟</span>
+              <h2>تجربة تسوق عربية أصيلة</h2>
+              <p>
+                نقدم لك تجربة شراء سهلة، آمنة، وموثوقة مع تنوع في المنتجات، أسعار
+                تنافسية، ودعم فني مستمر طوال اليوم.
+              </p>
+            </div>
+            <div class="about-badges">
+              <span>ضمان جودة</span>
+              <span>استرجاع سهل</span>
+              <span>تجربة مميزة</span>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <aside class="cart-panel" id="cartPanel" aria-label="سلة التسوق">
+        <div class="cart-header">
+          <h3>سلة التسوق</h3>
+          <button id="closeCart" class="close-btn" aria-label="إغلاق السلة">✕</button>
+        </div>
+
+        <div class="cart-items" id="cartItems">
+          <div class="empty-state">
+            <div class="empty-icon">🛍️</div>
+            <p>سلة التسوق فارغة</p>
+          </div>
+        </div>
+
+        <div class="cart-summary">
+          <div class="summary-row">
+            <span>المجموع الفرعي</span>
+            <strong id="subtotal">SAR 0</strong>
+          </div>
+          <div class="summary-row">
+            <span>التوصيل</span>
+            <strong>مجاني</strong>
+          </div>
+          <div class="summary-row total">
+            <span>الإجمالي</span>
+            <strong id="total">SAR 0</strong>
+          </div>
+          <button class="checkout-btn">إتمام الطلب</button>
+        </div>
+      </aside>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(
